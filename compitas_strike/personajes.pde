@@ -1,73 +1,64 @@
 class Personajes{
-    float x, y, anch, larg,velocidad=2.5;
+    int x, y, velocidad=3;
     boolean arriba, abajo, der, izq;
-    Personajes (float tempx, float tempy, float tempanch, float templarg){
+    int wx=13, wy=460, w=34, h=50;
+    PImage prueba;
+   
+    
+    Personajes (int tempx, int tempy){
+   
+    
     x=tempx;
     y=tempy;
-    anch=tempanch;
-    larg=templarg;
+    
   }
     void display(){
-    rectMode(CENTER);
-    rect(x,y,anch,larg);
+   prueba= loadImage("sprites.png");
+    
+    copy(prueba,wx,wy,w,h,x,y,w,h);
+    
   }
     
    void move(){
-     
-     if(keyPressed == true){                                
-      if (key == CODED) {                                  
-        switch(keyCode) {          
-        case UP:
-          arriba=true; 
-         abajo=false;
-         der=false;
-         izq=false;
-        break;
         
-        case DOWN:  
-          arriba=false; 
-         abajo=true;
-         der=false;
-         izq=false;
-         break;
-   
-       case LEFT:     
-          arriba=false; 
-         abajo=false;
-         der=false;
-         izq=true;                                      
-        break;                                                             
-        
-       case RIGHT:
-         arriba=false; 
-         abajo=false;
-         der=true;
-         izq=false;                                      
-           break;
-        default:
-        arriba=false; 
-         abajo=false;
-         der=false;
-         izq=false;                                      
-           break;
        
-         }
-       }
-     if(arriba==true&&y>(larg/2)){
+     if(arriba==true&&y>(h/2)){
        y-=velocidad;
+       wy=653;
      }
-     else if (abajo==true&&y<height-larg/2){
+     else if (abajo==true&&y<height-h){
      y+=velocidad;
+     wy=460;
    }
-   else if (der==true && x<width-anch/2){
-   x+=velocidad;}
-   else if (izq==true&&x>anch/2){
-     x-=velocidad;}
+   else if (der==true && x<width-w){
+   x+=velocidad;
+ wy=590;}
+   else if (izq==true&&x>w/2){
+     x-=velocidad;
+   wy=526;}
     else{
     x+=0; y+=0;
     }
      
-     } 
+  } 
 
+    void keycontrol(int k, boolean b){
+   switch(k){
+     case UP:
+     arriba=b;
+     
+     break;
+     case DOWN:
+     abajo=b;
+     
+     break;
+     case LEFT:
+     izq=b;
+     
+     break;
+     case RIGHT:
+     der=b;
+     
+     break;}
 }
 }
