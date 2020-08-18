@@ -1,17 +1,20 @@
 class Personajes{
-    int x, y, velocidad=10;
+    int x, y, velocidadperso=4,velocidadprof=2,i;
     boolean arriba, abajo, der, izq;
-    int wx=13, wy=460, w=34, h=50;
+    int wx, wy, w, h;
     PImage prueba;
    
     
-    Personajes (int tempx, int tempy){
+    Personajes (int tempx, int tempy, int tempwx,int tempwy, int tempw, int temph){
    
-    
     x=tempx;
     y=tempy;
-    
+    wx=tempwx;
+    wy=tempwy;
+    w=tempw;
+    h=temph;
   }
+ 
     void display(){
    prueba= loadImage("sprites.png");
     
@@ -19,92 +22,60 @@ class Personajes{
     
   }
     
-   void move(){
-        
-       
+   void movePerso(){ 
+     i=frameCount;
+     if(frameCount==14){        
+       frameCount=0;
+     }
      if(arriba==true&&y>(h/2)){
-       y-=velocidad;
+       y-=velocidadperso;
        wy=653;
-       switch(wx){
-       case 13:
+      switch(i){
+       case 1:
          wx=77;
-         delay(50);
          break;
-       case 77:
-         wx=141;
-         delay(50);
-         break;
-       case 141:
+       case 7:
          wx=207;
-         delay(50);
          break;
-       case 207:
-         wx=13;
-         delay(50);
-         break;}
+       }
+         
+       
      }
      else if (abajo==true&&y<height-h){
-     y+=velocidad;
+     y+=velocidadperso;
      wy=460;
-     switch(wx){
-       case 13:
+     switch(i){
+       case 1:
          wx=77;
-         delay(50);
          break;
-       case 77:
-         wx=141;
-         delay(50);
-         break;
-       case 141:
+       case 7:
          wx=207;
-         delay(50);
          break;
-       case 207:
-         wx=13;
-         delay(50);
-         break;}
+       }
    }
    else if (der==true && x<width-w){
-   x+=velocidad;
+   x+=velocidadperso;
     wy=590;
-     switch(wx){
-       case 13:
+     switch(i){
+       case 1:
          wx=77;
-         delay(50);
          break;
-       case 77:
-         wx=141;
-         delay(50);
-         break;
-       case 141:
+       case 7:
          wx=207;
-         delay(50);
          break;
-       case 207:
-         wx=13;
-         delay(50);
-         break;}
+       }
        }
    else if (izq==true&&x>w/2){
-     x-=velocidad;
+     x-=velocidadperso;
      wy=526;
-   switch(wx){
-       case 13:
+   switch(i){
+       case 1:
          wx=77;
-         delay(50);
          break;
-       case 77:
-         wx=141;
-         delay(50);
-         break;
-       case 141:
+       case 7:
          wx=207;
-         delay(50);
          break;
-       case 207:
-         wx=13;
-         delay(50);
-         break;}
+       }
        }
     else{
     x+=0; y+=0;
@@ -131,5 +102,109 @@ class Personajes{
      der=b;
      
      break;}
-}
+  }
+  void moveProfes(){
+    i=frameCount;
+     if(frameCount==14){        
+       frameCount=0;}
+    if (x<principal.x&&y>principal.y){
+    x+=velocidadprof;
+    y-=velocidadprof;
+    wy=405;
+    switch(i){
+       case 1:
+         wx=32;
+         break;
+       case 7:
+         wx=98;
+         break;
+    }
+  }
+    else if (x>principal.x&&y>principal.y){
+    x-=velocidadprof;
+    y-=velocidadprof;
+    wy=405;
+    switch(i){
+       case 1:
+         wx=32;
+         break;
+       case 7:
+         wx=98;
+         break;
+    }
+  }
+    else if (x<principal.x&&y<principal.y){
+    x+=velocidadprof;
+    y+=velocidadprof;
+    wy=260;
+    switch(i){
+       case 1:
+         wx=32;
+         break;
+       case 7:
+         wx=98;
+         break;
+       }
+  }
+    else if (x>principal.x&&y<principal.y){
+    x-=velocidadprof;
+    y+=velocidadprof;
+    wy=260;
+    switch(i){
+       case 1:
+         wx=32;
+         break;
+       case 7:
+         wx=98;
+         break;} 
+  }
+    else if (x==principal.x&&y<principal.y){
+    y+=velocidadprof;
+    wy=260;
+    switch(i){
+       case 1:
+         wx=32;
+         break;
+       case 7:
+         wx=98;
+         break;} 
+  }
+    else if (x==principal.x&&y>principal.y){
+    y-=velocidadprof;
+    wy=405;
+    switch(i){
+       case 1:
+         wx=32;
+         break;
+       case 7:
+         wx=98;
+         break;}
+    }
+    else if (x<principal.x&&y==principal.y){
+    x+=velocidadprof;
+    wy=356;
+    switch(i){
+       case 1:
+         wx=32;
+         break;
+       case 7:
+         wx=98;
+         break;} 
+  }
+    else if (x>principal.x&&y==principal.y){
+    x-=velocidadprof;
+    wy=307;
+    switch(i){
+       case 1:
+         wx=32;
+         break;
+       case 7:
+         wx=98;
+         break;} 
+  }
+    else{
+    y+=0;
+    x+=0;
+    }
+  }
 }
