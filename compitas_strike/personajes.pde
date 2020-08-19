@@ -24,7 +24,7 @@ class Personajes{
     
    void movePerso(){ 
      i=frameCount;
-     if(frameCount==14){        
+     if(frameCount==7){        
        frameCount=0;
      }
      if(arriba==true&&y>(h/2)){
@@ -34,7 +34,7 @@ class Personajes{
        case 1:
          wx=77;
          break;
-       case 7:
+       case 4:
          wx=207;
          break;
        }
@@ -48,7 +48,7 @@ class Personajes{
        case 1:
          wx=77;
          break;
-       case 7:
+       case 4:
          wx=207;
          break;
        }
@@ -60,7 +60,7 @@ class Personajes{
        case 1:
          wx=77;
          break;
-       case 7:
+       case 4:
          wx=207;
          break;
        }
@@ -72,7 +72,7 @@ class Personajes{
        case 1:
          wx=77;
          break;
-       case 7:
+       case 4:
          wx=207;
          break;
        }
@@ -105,7 +105,7 @@ class Personajes{
   }
   void moveProfes(){
     i=frameCount;
-     if(frameCount==14){        
+     if(frameCount==7){        
        frameCount=0;}
     if (x<principal.x&&y>principal.y){
     x+=velocidadprof;
@@ -115,7 +115,7 @@ class Personajes{
        case 1:
          wx=32;
          break;
-       case 7:
+       case 4:
          wx=98;
          break;
     }
@@ -128,7 +128,7 @@ class Personajes{
        case 1:
          wx=32;
          break;
-       case 7:
+       case 4:
          wx=98;
          break;
     }
@@ -141,7 +141,7 @@ class Personajes{
        case 1:
          wx=32;
          break;
-       case 7:
+       case 4:
          wx=98;
          break;
        }
@@ -154,7 +154,7 @@ class Personajes{
        case 1:
          wx=32;
          break;
-       case 7:
+       case 4:
          wx=98;
          break;} 
   }
@@ -165,7 +165,7 @@ class Personajes{
        case 1:
          wx=32;
          break;
-       case 7:
+       case 4:
          wx=98;
          break;} 
   }
@@ -176,7 +176,7 @@ class Personajes{
        case 1:
          wx=32;
          break;
-       case 7:
+       case 4:
          wx=98;
          break;}
     }
@@ -187,7 +187,7 @@ class Personajes{
        case 1:
          wx=32;
          break;
-       case 7:
+       case 4:
          wx=98;
          break;} 
   }
@@ -198,7 +198,7 @@ class Personajes{
        case 1:
          wx=32;
          break;
-       case 7:
+       case 4:
          wx=98;
          break;} 
   }

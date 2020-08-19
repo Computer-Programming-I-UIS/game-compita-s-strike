@@ -1,5 +1,5 @@
 int a=2;
-PImage plaza;
+PImage plaza,parcialito;
 Personajes principal;
 Personajes [] profesizq=new Personajes[a]; 
 Personajes [] profesder=new Personajes[a]; 
@@ -14,8 +14,10 @@ void setup(){
   
 }
 void draw(){
+  parcialito= loadImage("parcial.png");
   plaza= loadImage("plazache.jpeg");
  image(plaza,0,0);
+ copy(parcialito,9,4,19,20,20,20,19,20);
 
 for(int j=0;j<profesizq.length;j++){
 profesizq[j].moveProfes();
