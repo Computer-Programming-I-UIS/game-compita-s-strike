@@ -1,5 +1,5 @@
 class Personajes{
-    int x, y, velocidadperso=4,velocidadprof=2,i;
+    int x, y, velocidadperso=6,velocidadprof=4,i;
     boolean arriba, abajo, der, izq;
     int wx, wy, w, h;
     PImage prueba;
@@ -29,7 +29,7 @@ class Personajes{
      }
      if(arriba==true&&y>(h/2)){
        y-=velocidadperso;
-       wy=653;
+       wy=652;
       switch(i){
        case 1:
          wx=77;
@@ -43,7 +43,7 @@ class Personajes{
      }
      else if (abajo==true&&y<height-h){
      y+=velocidadperso;
-     wy=460;
+     wy=459;
      switch(i){
        case 1:
          wx=77;
@@ -55,7 +55,7 @@ class Personajes{
    }
    else if (der==true && x<width-w){
    x+=velocidadperso;
-    wy=590;
+    wy=589;
      switch(i){
        case 1:
          wx=77;
@@ -67,7 +67,7 @@ class Personajes{
        }
    else if (izq==true&&x>w/2){
      x-=velocidadperso;
-     wy=526;
+     wy=525;
    switch(i){
        case 1:
          wx=77;
