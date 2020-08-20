@@ -3,6 +3,7 @@ class Personajes{
     boolean arriba, abajo, der, izq;
     int wx, wy, w, h;
     PImage prueba;
+    float d;
    
     
     Personajes (int tempx, int tempy, int tempwx,int tempwy, int tempw, int temph){
@@ -17,8 +18,9 @@ class Personajes{
  
     void display(){
    prueba= loadImage("sprites.png");
-    
     copy(prueba,wx,wy,w,h,x,y,w,h);
+    //noFill();
+    //circle(x+17,y+23,120);
     
   }
     
@@ -104,6 +106,7 @@ class Personajes{
      break;}
   }
   void moveProfes(){
+    if(colision==false){
     i=frameCount;
      if(frameCount==7){        
        frameCount=0;}
@@ -206,5 +209,17 @@ class Personajes{
     y+=0;
     x+=0;
     }
+  }
+}
+
+  void colision(){
+    for(int i=0;i<profesder.length;i++){
+     d= dist(profesder[i].x+17,profesder[i].y+23,principal.x+17,principal.y+23);
+     if(d>90){colision=false;}
+     else{colision=true;}
+     println(covid);
+     if(d>120){covid=false;}
+     else{covid=true;}
+   }
   }
 }
