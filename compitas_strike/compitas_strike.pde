@@ -1,35 +1,62 @@
-int a=1;
-PImage plaza,parcialito;
-boolean colision=false,covid=false,menu=true;
+
+
+PImage plaza,parcialito,fondomenu;
+boolean colision=false,covid=false,menu1=true,menu2=false,tutorial=false,creditos=false, juego=false;
 float vida=1250;
 Personajes principal;
-//Personajes [] profesizq=new Personajes[a]; 
-Personajes [] profesder=new Personajes[a]; 
+Personajes profe;
+Botones nuevoj;
+Botones credit;
+Botones tuto;
+int dif=2;
+
 
 void setup(){
   size(1280,720);
-  principal= new Personajes (width/2,height/2,13,460,34,50);
-  for(int i=0;i<profesder.length;i++){
-  profesder[i]= new Personajes(width,int(random(0,height)),1,259,29,42);}
+  principal= new Personajes (width/2,height/2,13,460,34,50);  
+  profe= new Personajes(width,int(random(0,height)),1,259,29,42);
+  nuevoj= new Botones(width/2-200,300,400,50,215,166,0);
+  tuto= new Botones(width/2-200,370,400,50,215,166,0);
+  credit= new Botones(width/2-200,440,400,50,215,166,0);
   
 }
 void draw(){
-  if(menu==true){
-  menu();
+  if (menu1==true){
+  menu1();}
+  else if(menu2==true){
+  menu2();
   }
-  else if(menu==false){
+  else if (tutorial==true){
+    background(0);
+    textSize(40);
+    fill(255);
+    String a = "Bienvenid@ de nuevo a la universidad compa";
+    String b = "¡espero que esté preparad@ para sobrevivir!";
+    text(a,width/2-410 ,height/2);
+    text(b,width/2-410,height/2+50);
+    if(key=='s'){
+     /* a = "Estamos en pandemia todavía ¡no se le pegue mucho a la gente! ¿oyó?";
+      text(a,width/2-410 ,height/2);*/
+    principal.display();
+    principal.movePerso();}
+  }
+  else if(juego==true){
       parcialito= loadImage("parcial.png");
       plaza= loadImage("plazache.jpeg");
      image(plaza,0,0);
      copy(parcialito,9,4,19,20,20,20,19,20);
-    for(int i=0;i<profesder.length;i++){
-    profesder[i].moveProfes();
-    profesder[i].display();}
+    profe.moveProfes();
+    profe.display();
     principal.movePerso();
     principal.display();
     principal.colision();
     barras();
   }
+  else if(creditos==true){
+  background(0);
+  }
+ 
+     
   
 }
 void keyPressed(){
@@ -49,13 +76,26 @@ void barras(){
   fill(0);
   noStroke();
   rect(800,20,vida,60);  
-  if(covid==true && vida!=800){vida--;}
-  if(vida==800){menu=true;}
+  if(covid==true && vida!=800){vida-=dif;}
+  if(vida==800)
+  {  principal.velocidadperso=0;
+     profe.velocidadprof=0;
+     fill(0,0,255);
+     textSize(50);
+     text("TIENES COVID",(width/2)-40,height/2);
+     textSize(30);
+     text("presiona alguna letra para volver al menú",(width/2)-70,height-30);
+     if(keyPressed==true&&key!=CODED){
+    menu2=true;
+    juego=false;
+  setup();}
+}
   
 }
-void menu(){
+void menu2(){
   background(0);
   textSize(50);
+  fill(255);
   text("Elige la dificultad",width/2-200,150);
   text("1.Facil",width/2-300,250);
   text("2.Medio",width/2-300,300);
@@ -63,9 +103,49 @@ void menu(){
   textSize(10);
   text("elige con el teclado numerico", (width/2)-60, 400);
   if(keyPressed==true){
-      if(key=='1'){menu=false;}                                                    //aun no hace nada :v solo ponlo al lado de menu
-      else if(key=='2'){menu=false;}
-      else if(key=='3'){menu=false;}
-    }  
-  
+      if(key=='1'){
+        menu2=false;
+        vida=1250;
+       profe.velocidadprof=4;
+       principal.velocidadperso=10;
+       juego=true; 
+    }                                                    
+      else if(key=='2'){
+      menu2=false;
+      profe.velocidadprof=5;
+      vida=1250;
+      principal.velocidadperso=10;
+      juego=true; 
+      
+    }
+      else if(key=='3'){
+        menu2=false;
+        profe.velocidadprof=7;
+        vida=1250;
+        principal.velocidadperso=10;
+        juego=true; 
+        
+    }
+    } 
+   
+}
+void menu1(){
+  fondomenu=loadImage("unnamed.jpg");
+  image(fondomenu,0,0);
+  textSize(50);
+  fill(255);
+   text("Compitas Strike",width/2-200,150);
+   nuevoj.dibujar();
+   tuto.dibujar();
+   credit.dibujar();
+   tuto.tutorial();
+   credit.creditos();
+   nuevoj.nuevjueg();
+   textSize(30);
+   fill(0);
+   text("Nuevo Juego",width/2-100,335);
+   text("Historia y tutorial",width/2-150,405);
+   text("Créditos",width/2-70,475);
+   
+   
 }

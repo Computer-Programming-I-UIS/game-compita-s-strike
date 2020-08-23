@@ -1,5 +1,5 @@
 class Personajes{
-    int x, y, velocidadperso=6,velocidadprof=4,i;
+    int x,y, velocidadperso=10,velocidadprof=4,i=0;
     boolean arriba, abajo, der, izq;
     int wx, wy, w, h;
     PImage prueba;
@@ -23,12 +23,15 @@ class Personajes{
     //circle(x+17,y+23,120);
     
   }
+  
+    
     
    void movePerso(){ 
      i=frameCount;
      if(frameCount==7){        
-       frameCount=0;
+      frameCount=0;  
      }
+     //if (colision==false){
      if(arriba==true&&y>(h/2)){
        y-=velocidadperso;
        wy=652;
@@ -40,8 +43,7 @@ class Personajes{
          wx=207;
          break;
        }
-         
-       
+ 
      }
      else if (abajo==true&&y<height-h){
      y+=velocidadperso;
@@ -79,11 +81,24 @@ class Personajes{
          break;
        }
        }
+   
     else{
     x+=0; y+=0;
     wx=13;
     }
-     
+  // }
+   /*else{
+   if(x<profe.x&&der==true){
+   x+=;}
+   else if(x>profe.x&&izq==true){
+   x-=0;}
+   else if(y>profe.y&&arriba==true){
+   y-=0;}
+   else if(y<profe.y&&abajo==true){
+   y+=0;}
+   else{
+   }
+ }*/
   } 
 
     void keycontrol(int k, boolean b){
@@ -107,10 +122,8 @@ class Personajes{
   }
   void moveProfes(){
     if(colision==false){
-    i=frameCount;
-     if(frameCount==7){        
-       frameCount=0;}
-    if (x<principal.x&&y>principal.y){
+    
+    if (x<principal.x-(velocidadprof-1)&&y>principal.y+(velocidadprof-1)){
     x+=velocidadprof;
     y-=velocidadprof;
     wy=405;
@@ -123,7 +136,7 @@ class Personajes{
          break;
     }
   }
-    else if (x>principal.x&&y>principal.y){
+    else if (x>principal.x+(velocidadprof-1)&&y>principal.y+(velocidadprof-1)){
     x-=velocidadprof;
     y-=velocidadprof;
     wy=405;
@@ -136,7 +149,7 @@ class Personajes{
          break;
     }
   }
-    else if (x<principal.x&&y<principal.y){
+    else if (x<principal.x-(velocidadprof-1)&&y<principal.y-(velocidadprof-1)){
     x+=velocidadprof;
     y+=velocidadprof;
     wy=260;
@@ -149,7 +162,7 @@ class Personajes{
          break;
        }
   }
-    else if (x>principal.x&&y<principal.y){
+    else if (x>principal.x+(velocidadprof-1)&&y<principal.y-(velocidadprof-1)){
     x-=velocidadprof;
     y+=velocidadprof;
     wy=260;
@@ -161,7 +174,7 @@ class Personajes{
          wx=98;
          break;} 
   }
-    else if (x==principal.x&&y<principal.y){
+    else if (x>=principal.x-(velocidadprof-1)&&x<=principal.x+(velocidadprof-1)&&y<principal.y+(velocidadprof-1)){
     y+=velocidadprof;
     wy=260;
     switch(i){
@@ -172,7 +185,7 @@ class Personajes{
          wx=98;
          break;} 
   }
-    else if (x==principal.x&&y>principal.y){
+    else if (x>=principal.x-(velocidadprof-1)&&x<=principal.x+(velocidadprof-1)&&y>principal.y-(velocidadprof-1)){
     y-=velocidadprof;
     wy=405;
     switch(i){
@@ -183,7 +196,7 @@ class Personajes{
          wx=98;
          break;}
     }
-    else if (x<principal.x&&y==principal.y){
+    else if (x<principal.x+(velocidadprof-1)&&y>=principal.y-(velocidadprof-1)&&y<=principal.y+(velocidadprof-1)){
     x+=velocidadprof;
     wy=356;
     switch(i){
@@ -194,7 +207,7 @@ class Personajes{
          wx=98;
          break;} 
   }
-    else if (x>principal.x&&y==principal.y){
+    else if (x>principal.x+(velocidadprof-1)&&y>=principal.y-(velocidadprof-1)&&y<=principal.y+(velocidadprof-1)){
     x-=velocidadprof;
     wy=307;
     switch(i){
@@ -205,6 +218,7 @@ class Personajes{
          wx=98;
          break;} 
   }
+  
     else{
     y+=0;
     x+=0;
@@ -213,13 +227,13 @@ class Personajes{
 }
 
   void colision(){
-    for(int i=0;i<profesder.length;i++){
-     d= dist(profesder[i].x+17,profesder[i].y+23,principal.x+17,principal.y+23);
+    
+     d= dist(profe.x+17,profe.y+23,principal.x+17,principal.y+23);
      if(d>90){colision=false;}
      else{colision=true;}
-     println(covid);
-     if(d>120){covid=false;}
+     //println(covid);
+     if(d>100){covid=false;}
      else{covid=true;}
-   }
+   
   }
 }
