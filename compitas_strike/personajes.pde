@@ -31,7 +31,7 @@ class Personajes{
      if(frameCount==7){        
       frameCount=0;  
      }
-     //if (colision==false){
+     
      if(arriba==true&&y>(h/2)){
        y-=velocidadperso;
        wy=652;
@@ -86,19 +86,7 @@ class Personajes{
     x+=0; y+=0;
     wx=13;
     }
-  // }
-   /*else{
-   if(x<profe.x&&der==true){
-   x+=;}
-   else if(x>profe.x&&izq==true){
-   x-=0;}
-   else if(y>profe.y&&arriba==true){
-   y-=0;}
-   else if(y<profe.y&&abajo==true){
-   y+=0;}
-   else{
-   }
- }*/
+  
   } 
 
     void keycontrol(int k, boolean b){

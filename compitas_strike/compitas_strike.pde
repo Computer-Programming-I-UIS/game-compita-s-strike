@@ -8,6 +8,7 @@ Personajes profe;
 Botones nuevoj;
 Botones credit;
 Botones tuto;
+Tutorial pags;
 int dif=2;
 
 
@@ -18,6 +19,7 @@ void setup(){
   nuevoj= new Botones(width/2-200,300,400,50,215,166,0);
   tuto= new Botones(width/2-200,370,400,50,215,166,0);
   credit= new Botones(width/2-200,440,400,50,215,166,0);
+  pags= new Tutorial(0,1,false,false);
   
 }
 void draw(){
@@ -27,19 +29,13 @@ void draw(){
   menu2();
   }
   else if (tutorial==true){
-    background(0);
-    textSize(40);
-    fill(255);
-    String a = "Bienvenid@ de nuevo a la universidad compa";
-    String b = "¡espero que esté preparad@ para sobrevivir!";
-    text(a,width/2-410 ,height/2);
-    text(b,width/2-410,height/2+50);
-    if(key=='s'){
-     /* a = "Estamos en pandemia todavía ¡no se le pegue mucho a la gente! ¿oyó?";
-      text(a,width/2-410 ,height/2);*/
-    principal.display();
-    principal.movePerso();}
-  }
+ pags.paginas();
+    
+ }
+     
+    
+    
+  
   else if(juego==true){
       parcialito= loadImage("parcial.png");
       plaza= loadImage("plazache.jpeg");
@@ -60,10 +56,13 @@ void draw(){
   
 }
 void keyPressed(){
-  if(key==CODED){principal.keycontrol(keyCode, true);} 
+  if(key==CODED)principal.keycontrol(keyCode, true);
+  if(key!=CODED)pags.controls(key,true);
+   
 }
 void keyReleased(){
- if(key==CODED){principal.keycontrol(keyCode, false);}
+ if(key==CODED)principal.keycontrol(keyCode, false);
+ if(key!=CODED)pags.controls(key,false);
 }
 void barras(){
   noFill();
