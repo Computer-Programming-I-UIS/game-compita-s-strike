@@ -9,6 +9,7 @@ Botones nuevoj;
 Botones credit;
 Botones tuto;
 Tutorial pags;
+toxi toxicombo;
 int dif=2;
 
 
@@ -20,6 +21,7 @@ void setup(){
   tuto= new Botones(width/2-200,370,400,50,215,166,0);
   credit= new Botones(width/2-200,440,400,50,215,166,0);
   pags= new Tutorial(0,1,false,false);
+  toxicombo = new toxi();
   
 }
 void draw(){
@@ -52,6 +54,10 @@ void draw(){
     timer();
     barraestudio();
     promedio();
+    toxicombo.display();
+    if(toxicombo.comer()==true){
+    toxicombo = new toxi();
+    }
   }
   else if(creditos==true){
   background(0);
