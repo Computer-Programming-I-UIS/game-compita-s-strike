@@ -57,6 +57,22 @@
       principal.movePerso();
      
       break;
+     case 4:
+      background(0);
+      textSize(30);
+      text("¡Mantengase alejado del profesor que va a intentar acercarsele!",width/2-400,70);
+      text("si no se aleja su barra de salud va a disminuir",width/2-300,115);
+      text("y si llega a 0 se va a contagiar de Covid-19",width/2-300,160);
+      profe.display();
+      profe.x=width/2;
+      profe.y=height/2;
+      textSize(20);
+     text("Presione s para volver al menu principal",width-410,height-50);
+     break;
+     default:
+     setup();
+     tutorial=false;
+     menu1=true;
     }
  }
  void controls (int s, boolean j){

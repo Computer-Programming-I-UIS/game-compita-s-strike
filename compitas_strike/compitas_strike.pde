@@ -37,6 +37,7 @@ void draw(){
     
   
   else if(juego==true){
+    
       parcialito= loadImage("parcial.png");
       plaza= loadImage("plazache.jpeg");
      image(plaza,0,0);
@@ -101,6 +102,8 @@ void menu2(){
   text("3.Mastodonte",width/2-300,350);
   textSize(10);
   text("elige con el teclado numerico", (width/2)-60, 400);
+  textSize(20);
+    text("Presione s para volver al menu principal",width-410,height-50);
   if(keyPressed==true){
       if(key=='1'){
         menu2=false;
@@ -125,10 +128,15 @@ void menu2(){
         juego=true; 
         
     }
-    } 
+    else if (key=='s'){
+      menu2=false;
+      menu1=true;
+    }
+   } 
    
 }
 void menu1(){
+  
   fondomenu=loadImage("unnamed.jpg");
   image(fondomenu,0,0);
   textSize(50);
@@ -145,6 +153,7 @@ void menu1(){
    text("Nuevo Juego",width/2-100,335);
    text("Historia y tutorial",width/2-150,405);
    text("Créditos",width/2-70,475);
+   
    
    
 }
