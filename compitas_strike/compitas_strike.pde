@@ -23,6 +23,7 @@ void setup(){
   
 }
 void draw(){
+  println(mouseX,mouseY);
   if (menu1==true){
   menu1();}
   else if(menu2==true){
@@ -48,6 +49,9 @@ void draw(){
     principal.display();
     principal.colision();
     barras();
+    timer();
+    barraestudio();
+    promedio();
   }
   else if(creditos==true){
   background(0);
@@ -70,14 +74,14 @@ void barras(){
   stroke(0,250,0);
   strokeWeight(5);
   rectMode(CORNERS);
-  rect(800,20,1250,60);
+  rect(900,20,1250,60);
   stroke(0);
   strokeWeight(0);
   fill(0);
   noStroke();
-  rect(800,20,vida,60);  
-  if(covid==true && vida!=800){vida-=dif;}
-  if(vida==800)
+  rect(900,20,vida,60);  
+  if(covid==true && vida!=900){vida-=dif;}
+  if(vida==900)
   {  principal.velocidadperso=0;
      profe.velocidadprof=0;
      fill(0,0,255);
@@ -89,6 +93,7 @@ void barras(){
     menu2=true;
     juego=false;
   setup();}
+  
 }
   
 }

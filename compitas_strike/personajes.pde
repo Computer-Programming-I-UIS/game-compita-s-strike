@@ -19,8 +19,6 @@ class Personajes{
     void display(){
    prueba= loadImage("sprites.png");
     copy(prueba,wx,wy,w,h,x,y,w,h);
-    //noFill();
-    //circle(x+17,y+23,120);
     
   }
   
