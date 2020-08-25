@@ -57,6 +57,7 @@ void draw(){
     toxicombo.display();
     if(toxicombo.comer()==true){
     toxicombo = new toxi();
+    vida+=10;
     }
   }
   else if(creditos==true){
