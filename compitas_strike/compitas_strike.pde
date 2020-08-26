@@ -120,6 +120,8 @@ void barras(){
 }
 void menu2(){
   setup();
+  muertecov=false;
+  muerteprom=false;
   background(0);
   textSize(50);
   fill(255);
