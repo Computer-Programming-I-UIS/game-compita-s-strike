@@ -11,8 +11,8 @@ Realizado por:
 
 En un momento utópico en el que es permitido asistir a la Universidad Industrial de Santander de forma presencial, nuestro personaje deberá enfrentarse a los peligros de contagiarse de Covid-19 y de quedar "en bolsa" por un bajo promedio.
 
-![./captura1.png](./captura1.png)
-![./captura1.png](./captura2.png)
+![./capturas/captura1.png](./capturas/captura1.png)
+![./capturas/captura1.png](./capturas/captura2.png)
 
 ### Características
 
@@ -32,6 +32,6 @@ En un momento utópico en el que es permitido asistir a la Universidad Industria
 
 - Juego apto para personas mayores de 7 años ya que no presenta violencia, pero puede presentar situaciones o lenguaje dificiles de comprender.
 
-![./7.png](./7.png)
-![./índice.png](./índice.png)
+![./capturas/7.png](./capturas/7.png)
+![./capturas/índice.png](./capturas/índice.png)
 
