@@ -1,7 +1,8 @@
 
 
-PImage plaza,parcialito,fondomenu;
-boolean colision=false,covid=false,menu1=true,menu2=false,tutorial=false,creditos=false, juego=false;
+PImage plaza,parcialito,fondomenu,libros,toxi,pegi,esrb;
+
+boolean colision=false,covid=false,menu1=true,menu2=false,tutorial=false,creditos=false, juego=false,muertecov=false,muerteprom=false;
 float vida=1250;
 Personajes principal;
 Personajes profe;
@@ -17,17 +18,21 @@ void setup(){
   size(1280,720);
   principal= new Personajes (width/2,height/2,13,460,34,50);  
   profe= new Personajes(width,int(random(0,height)),1,259,29,42);
-  nuevoj= new Botones(width/2-200,300,400,50,215,166,0);
-  tuto= new Botones(width/2-200,370,400,50,215,166,0);
-  credit= new Botones(width/2-200,440,400,50,215,166,0);
+  nuevoj= new Botones(440,300,400,50,215,166,0);
+  tuto= new Botones(440,370,400,50,215,166,0);
+  credit= new Botones(440,440,400,50,215,166,0);
   pags= new Tutorial(0,1,false,false);
   toxicombo = new toxi();
+   
   
 }
 void draw(){
-  println(mouseX,mouseY);
+  
   if (menu1==true){
-  menu1();}
+  menu1();
+  
+  
+  }
   else if(menu2==true){
   menu2();
   }
@@ -45,23 +50,26 @@ void draw(){
       plaza= loadImage("plazache.jpeg");
      image(plaza,0,0);
      copy(parcialito,9,4,19,20,20,20,19,20);
+   timer();
+    promedio();
+    toxicombo.display();
     profe.moveProfes();
     profe.display();
     principal.movePerso();
     principal.display();
     principal.colision();
-    barras();
-    timer();
     barraestudio();
-    promedio();
-    toxicombo.display();
-    if(toxicombo.comer()==true){
+    barras();
+   if(toxicombo.comer()==true){
     toxicombo = new toxi();
-    vida+=10;
+    if(vida<=1230){
+    vida+=20;}
+    else{
+    vida+=1250-vida;}
     }
   }
   else if(creditos==true){
-  background(0);
+  creditos();
   }
  
      
@@ -86,15 +94,21 @@ void barras(){
   strokeWeight(0);
   fill(0);
   noStroke();
-  rect(900,20,vida,60);  
+  rect(900,20,vida,60);
+  textSize(15);
+  text("SALUD",920,85);
   if(covid==true && vida!=900){vida-=dif;}
-  if(vida==900)
-  {  principal.velocidadperso=0;
+  if(vida==900&&muerteprom==false)
+  {
+    principal.velocidadperso=0;
      profe.velocidadprof=0;
-     fill(0,0,255);
+     muertecov=true;
+     background(0);
+     fill(255,0,0);
      textSize(50);
-     text("TIENES COVID",(width/2)-40,height/2);
+     text("TIENES COVID",(width/2)-150,height/2);
      textSize(30);
+     fill(0,0,255);
      text("presiona alguna letra para volver al menú",(width/2)-70,height-30);
      if(keyPressed==true&&key!=CODED){
     menu2=true;
@@ -105,6 +119,7 @@ void barras(){
   
 }
 void menu2(){
+  setup();
   background(0);
   textSize(50);
   fill(255);
@@ -148,7 +163,7 @@ void menu2(){
    
 }
 void menu1(){
-  
+ 
   fondomenu=loadImage("unnamed.jpg");
   image(fondomenu,0,0);
   textSize(50);
@@ -165,6 +180,10 @@ void menu1(){
    text("Nuevo Juego",width/2-100,335);
    text("Historia y tutorial",width/2-150,405);
    text("Créditos",width/2-70,475);
+   pegi = loadImage("7.png");
+   copy(pegi,0,0,424,518,20,height-140,100,140);
+   esrb = loadImage("índice.png");
+   copy(esrb,3,4,176,267,140,height-140,100,140);
    
    
    

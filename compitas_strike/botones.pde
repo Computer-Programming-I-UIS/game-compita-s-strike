@@ -1,6 +1,6 @@
 class Botones{
-  float x,y,anch,larg,R,G,B;
-  Botones(float tempx, float tempy, float tempanch, float templarg,float tempR,float tempG, float tempB){
+  int x,y,anch,larg,R,G,B;
+  Botones(int tempx, int tempy, int tempanch, int templarg,int tempR,int tempG, int tempB){
   x=tempx;
   y=tempy;
   anch=tempanch;

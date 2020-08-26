@@ -21,8 +21,8 @@
      background(0);
      textSize(40);
      fill(255);
-     text("Bienvenid@ de nuevo a la universidad compa",width/2-410 ,height/2);
-     text("¡espero que esté preparad@ para sobrevivir!",width/2-410,height/2+50);
+     text("Bienvenido de nuevo a la universidad compa",width/2-410 ,height/2);
+     text("¡espero que esté preparado para sobrevivir!",width/2-410,height/2+50);
      textSize(20);
      fill(255);
      text("Presione s para continuar",width-410,height-50);
@@ -55,7 +55,6 @@
      text("Presione s para continuar",width-410,height-50);
       principal.display();
       principal.movePerso();
-     
       break;
      case 4:
       background(0);
@@ -67,8 +66,33 @@
       profe.x=width/2;
       profe.y=height/2;
       textSize(20);
-     text("Presione s para volver al menu principal",width-410,height-50);
+      text("Presione s para continuar",width-410,height-50);
+     
      break;
+    case 5:
+      background(0);
+      textSize(30);
+      text("Para recuperar su salud puede comerse un toxicombo... ",width/2-400,70);
+      text("Son muy efectivos para atacar cualquier virus",width/2-300,115);
+     toxi= loadImage("toxi.png");
+    copy(toxi,10,9,150,160,width/2-50,height/2-50,100,100);
+    textSize(20);
+     text("Presione s para continuar",width-410,height-50);
+      break;
+     case 6:
+      background(0);
+      textSize(30);
+      text("Compa ¡recuerde que también tiene que estudiar!",width/2-400,70);
+      text("Los líbros estarán disponibles en todo momento",width/2-400,115);
+      text("estos le permitirán prepararse para el ataque silencioso y repentino de los parciales",width/2-600,160);
+      text("¡OJO! nadie sabe cuándo atacarán así que mantengase preparado",width/2-450,205);
+      text("si no se prepara su promedio bajará",width/2-250,250);
+      text("Si su promedio queda por debajo de 3 quedará en bolsa",width/2-360,295); 
+       libros= loadImage("libros.png");
+      copy(libros,2,28,436,394,width/2-75,360,150,150);
+      textSize(20);
+      text("Presione s para volver al menu principal",width-410,height-50);
+       break;
      default:
      setup();
      tutorial=false;

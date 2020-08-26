@@ -25,59 +25,27 @@ class Personajes{
     
     
    void movePerso(){ 
-     i=frameCount;
-     if(frameCount==7){        
-      frameCount=0;  
-     }
      
-     if(arriba==true&&y>(h/2)){
+     
+     if(arriba==true&&y>(95)){
        y-=velocidadperso;
        wy=652;
-      switch(i){
-       case 1:
-         wx=77;
-         break;
-       case 4:
-         wx=207;
-         break;
-       }
- 
+      
      }
      else if (abajo==true&&y<height-h){
      y+=velocidadperso;
      wy=459;
-     switch(i){
-       case 1:
-         wx=77;
-         break;
-       case 4:
-         wx=207;
-         break;
-       }
+   
    }
    else if (der==true && x<width-w){
    x+=velocidadperso;
     wy=589;
-     switch(i){
-       case 1:
-         wx=77;
-         break;
-       case 4:
-         wx=207;
-         break;
-       }
+    
        }
    else if (izq==true&&x>w/2){
      x-=velocidadperso;
      wy=525;
-   switch(i){
-       case 1:
-         wx=77;
-         break;
-       case 4:
-         wx=207;
-         break;
-       }
+  
        }
    
     else{
@@ -126,83 +94,39 @@ class Personajes{
     x-=velocidadprof;
     y-=velocidadprof;
     wy=405;
-    switch(i){
-       case 1:
-         wx=32;
-         break;
-       case 4:
-         wx=98;
-         break;
-    }
+  
   }
     else if (x<principal.x-(velocidadprof-1)&&y<principal.y-(velocidadprof-1)){
     x+=velocidadprof;
     y+=velocidadprof;
     wy=260;
-    switch(i){
-       case 1:
-         wx=32;
-         break;
-       case 4:
-         wx=98;
-         break;
-       }
+   
   }
     else if (x>principal.x+(velocidadprof-1)&&y<principal.y-(velocidadprof-1)){
     x-=velocidadprof;
     y+=velocidadprof;
     wy=260;
-    switch(i){
-       case 1:
-         wx=32;
-         break;
-       case 4:
-         wx=98;
-         break;} 
+  
   }
     else if (x>=principal.x-(velocidadprof-1)&&x<=principal.x+(velocidadprof-1)&&y<principal.y+(velocidadprof-1)){
     y+=velocidadprof;
     wy=260;
-    switch(i){
-       case 1:
-         wx=32;
-         break;
-       case 4:
-         wx=98;
-         break;} 
+     
   }
     else if (x>=principal.x-(velocidadprof-1)&&x<=principal.x+(velocidadprof-1)&&y>principal.y-(velocidadprof-1)){
     y-=velocidadprof;
     wy=405;
-    switch(i){
-       case 1:
-         wx=32;
-         break;
-       case 4:
-         wx=98;
-         break;}
+  
     }
     else if (x<principal.x+(velocidadprof-1)&&y>=principal.y-(velocidadprof-1)&&y<=principal.y+(velocidadprof-1)){
     x+=velocidadprof;
     wy=356;
-    switch(i){
-       case 1:
-         wx=32;
-         break;
-       case 4:
-         wx=98;
-         break;} 
+    
   }
     else if (x>principal.x+(velocidadprof-1)&&y>=principal.y-(velocidadprof-1)&&y<=principal.y+(velocidadprof-1)){
     x-=velocidadprof;
     wy=307;
-    switch(i){
-       case 1:
-         wx=32;
-         break;
-       case 4:
-         wx=98;
-         break;} 
+    
   }
   
     else{
