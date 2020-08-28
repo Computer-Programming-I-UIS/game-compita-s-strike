@@ -9,6 +9,7 @@ Personajes profe;
 Botones nuevoj;
 Botones credit;
 Botones tuto;
+Botones salir;
 Tutorial pags;
 toxi toxicombo;
 int dif=2;
@@ -21,6 +22,7 @@ void setup(){
   nuevoj= new Botones(440,300,400,50,215,166,0);
   tuto= new Botones(440,370,400,50,215,166,0);
   credit= new Botones(440,440,400,50,215,166,0);
+  salir = new Botones(440, 510,400,50,215,166,0);
   pags= new Tutorial(0,1,false,false);
   toxicombo = new toxi();
    
@@ -172,16 +174,20 @@ void menu1(){
   fill(255);
    text("Compitas Strike",width/2-200,150);
    nuevoj.dibujar();
+   salir.dibujar();
    tuto.dibujar();
    credit.dibujar();
    tuto.tutorial();
    credit.creditos();
    nuevoj.nuevjueg();
+   salir.salir();
+   
    textSize(30);
    fill(0);
    text("Nuevo Juego",width/2-100,335);
    text("Historia y tutorial",width/2-150,405);
    text("Créditos",width/2-70,475);
+   text("Salir",width/2-40,545);
    pegi = loadImage("7.png");
    copy(pegi,0,0,424,518,20,height-140,100,140);
    esrb = loadImage("índice.png");

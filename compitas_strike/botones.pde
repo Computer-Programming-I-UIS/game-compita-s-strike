@@ -38,5 +38,9 @@ class Botones{
     menu1=false;
     menu2=true;}
   }
+  void salir(){
+    if (mouseX>x&&mouseX<x+anch&&mouseY>y&&mouseY<y+larg&&mousePressed){
+    exit();}
+  }
   
 }
