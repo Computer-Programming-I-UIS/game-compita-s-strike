@@ -1,12 +1,12 @@
-int time=round(random(500,600));
+int time;
 float prom=5,estudio=100,nota=5; 
 
 void timer(){
-  println(time);
+  
   time-=1/frameRate;
   if(time==0){
   prom=(prom+nota)/2;
-  time=round(random(500,600));
+  time=round(random(700,800));
   estudio=100;
   }
 }
@@ -17,7 +17,7 @@ void promedio(){
   text(prom,width/2-20,60);
   textSize(15);
   text("PROMEDIO",width/2-15,85);
-  nota=map(estudio,100,450,0,5);
+  nota=estudio/110;
   if(prom<3&&muertecov==false){
     background(0);
   principal.velocidadperso=0;

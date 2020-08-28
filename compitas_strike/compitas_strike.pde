@@ -1,5 +1,7 @@
 
 
+
+
 PImage plaza,parcialito,fondomenu,libros,toxi,pegi,esrb;
 
 boolean colision=false,covid=false,menu1=true,menu2=false,tutorial=false,creditos=false, juego=false,muertecov=false,muerteprom=false;
@@ -16,7 +18,9 @@ int dif=2;
 
 
 void setup(){
+  
   size(1280,720);
+
   principal= new Personajes (width/2,height/2,13,460,34,50);  
   profe= new Personajes(width,int(random(0,height)),1,259,29,42);
   nuevoj= new Botones(440,300,400,50,215,166,0);
@@ -25,12 +29,16 @@ void setup(){
   salir = new Botones(440, 510,400,50,215,166,0);
   pags= new Tutorial(0,1,false,false);
   toxicombo = new toxi();
-   
+  
   
 }
 void draw(){
-  
+   
+
+   
   if (menu1==true){
+      
+  
   menu1();
   
   
@@ -47,7 +55,7 @@ void draw(){
     
   
   else if(juego==true){
-    
+  
       parcialito= loadImage("parcial.png");
       plaza= loadImage("plazache.jpeg");
      image(plaza,0,0);
@@ -170,10 +178,7 @@ void menu1(){
  
   fondomenu=loadImage("unnamed.jpg");
   image(fondomenu,0,0);
-  textSize(50);
-  fill(255);
-   text("Compitas Strike",width/2-200,150);
-   nuevoj.dibujar();
+  nuevoj.dibujar();
    salir.dibujar();
    tuto.dibujar();
    credit.dibujar();
@@ -181,7 +186,9 @@ void menu1(){
    credit.creditos();
    nuevoj.nuevjueg();
    salir.salir();
-   
+  textSize(80);
+  fill(255);
+   text("Compitas Strike",width/2-300,150);
    textSize(30);
    fill(0);
    text("Nuevo Juego",width/2-100,335);
