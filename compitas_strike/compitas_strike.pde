@@ -1,5 +1,6 @@
-
-
+import ddf.minim.*;
+Minim menu;
+AudioPlayer player1;
 
 
 PImage plaza,parcialito,fondomenu,libros,toxi,pegi,esrb;
@@ -8,42 +9,34 @@ boolean colision=false,covid=false,menu1=true,menu2=false,tutorial=false,credito
 float vida=1250;
 Personajes principal;
 Personajes profe;
-Botones nuevoj;
-Botones credit;
-Botones tuto;
-Botones salir;
+
 Tutorial pags;
 toxi toxicombo;
-int dif=2;
-
-
+int dif=2,r1=215,r2=215,r3=215,r4=215,g1=166,g2=166,g3=166,g4=166;
 void setup(){
   
   size(1280,720);
-
+  menu= new Minim(this);
+  player1 = menu.loadFile("menu.wav",1024);
   principal= new Personajes (width/2,height/2,13,460,34,50);  
   profe= new Personajes(width,int(random(0,height)),1,259,29,42);
-  nuevoj= new Botones(440,300,400,50,215,166,0);
-  tuto= new Botones(440,370,400,50,215,166,0);
-  credit= new Botones(440,440,400,50,215,166,0);
-  salir = new Botones(440, 510,400,50,215,166,0);
   pags= new Tutorial(0,1,false,false);
   toxicombo = new toxi();
   
-  
+ 
 }
 void draw(){
-   
 
    
   if (menu1==true){
-      
-  
+    player1.loop();
+ 
   menu1();
   
   
   }
   else if(menu2==true){
+    
   menu2();
   }
   else if (tutorial==true){
@@ -56,10 +49,10 @@ void draw(){
   
   else if(juego==true){
   
-      parcialito= loadImage("parcial.png");
-      plaza= loadImage("plazache.jpeg");
-     image(plaza,0,0);
-     copy(parcialito,9,4,19,20,20,20,19,20);
+   parcialito= loadImage("parcial.png");
+   plaza= loadImage("plazache.jpeg");
+   image(plaza,0,0);
+   copy(parcialito,9,4,19,20,20,20,19,20);
    timer();
     promedio();
     toxicombo.display();
@@ -123,13 +116,23 @@ void barras(){
      if(keyPressed==true&&key!=CODED){
     menu2=true;
     juego=false;
-  setup();}
+    prom=5;
+    nota=5;
+    estudio=100;
+    time=round(random(700,800));
+  principal.x=width/2;
+  principal.y=height/2;
+  profe.x=width;
+  profe.y=int(random(0,height));}
   
 }
   
 }
 void menu2(){
-  setup();
+  principal.x=width/2;
+  principal.y=height/2;
+  profe.x=width;
+  profe.y=int(random(0,height));;
   muertecov=false;
   muerteprom=false;
   background(0);
@@ -175,17 +178,59 @@ void menu2(){
    
 }
 void menu1(){
- 
-  fondomenu=loadImage("unnamed.jpg");
-  image(fondomenu,0,0);
-  nuevoj.dibujar();
-   salir.dibujar();
-   tuto.dibujar();
-   credit.dibujar();
-   tuto.tutorial();
-   credit.creditos();
-   nuevoj.nuevjueg();
-   salir.salir();
+    background(195);
+  rectMode(CORNER);
+  stroke(0);
+  fill(r1,g1,0);
+  rect(440,300,400,50);
+  fill(r2,g2,0);
+  rect(440,370,400,50);
+  fill(r3,g3,0);
+  rect(440,440,400,50);
+  fill(r4,g4,0);
+  rect(440, 510,400,50);
+  if(mouseX>440&&mouseX<840&&mouseY>300&&mouseY<350){
+    r1=167;
+    g1=129;
+    if(mousePressed){
+    menu1=false;
+    menu2=true;}
+  }else{
+    r1=215;
+    g1=166;
+  }
+   if(mouseX>440&&mouseX<840&&mouseY>370&&mouseY<420){
+    r2=167;
+    g2=129;
+    if(mousePressed){
+    menu1=false;
+    tutorial=true;
+    }
+  }else{
+    r2=215;
+    g2=166;
+  }
+   if(mouseX>440&&mouseX<840&&mouseY>440&&mouseY<490){
+    r3=167;
+    g3=129;
+    if(mousePressed){
+    menu1=false;
+    creditos=true;}
+  }else{
+    r3=215;
+    g3=166;
+  }
+  if(mouseX>440&&mouseX<840&&mouseY>510&&mouseY<560){
+    r4=167;
+    g4=129;
+    if(mousePressed){
+    exit();}
+  }else{
+    r4=215;
+    g4=166;
+  }
+  
+  
   textSize(80);
   fill(255);
    text("Compitas Strike",width/2-300,150);

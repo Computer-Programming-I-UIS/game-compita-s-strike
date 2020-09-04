@@ -17,7 +17,7 @@ void promedio(){
   text(prom,width/2-20,60);
   textSize(15);
   text("PROMEDIO",width/2-15,85);
-  nota=estudio/110;
+  nota=map(estudio,100,450,0,5);
   if(prom<3&&muertecov==false){
     background(0);
   principal.velocidadperso=0;
@@ -32,7 +32,10 @@ void promedio(){
      if(keyPressed==true&&key!=CODED){
     menu2=true;
     juego=false;
-    setup();
+    principal.x=width/2;
+  principal.y=height/2;
+  profe.x=width;
+  profe.y=int(random(0,height));
     prom=5;
     nota=5;
     }
