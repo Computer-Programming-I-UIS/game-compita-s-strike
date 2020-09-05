@@ -11,6 +11,11 @@
    i=tempi;
  }
  void paginas(){
+   principal.velocidadperso=10;
+   principal.wx=13;
+   principal.wy=459;
+   profe.wy=259;
+   profe.wx=1;
    
     if(i==true&&olds==false){
       pagina++; 

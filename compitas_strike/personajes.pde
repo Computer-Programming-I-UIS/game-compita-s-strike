@@ -159,7 +159,8 @@ class Personajes{
      else{colision=true;}
      //println(covid);
      if(d>100){covid=false;}
-     else{covid=true;}
+     else{covid=true;
+      eyc.trigger();}
    
   }
 }

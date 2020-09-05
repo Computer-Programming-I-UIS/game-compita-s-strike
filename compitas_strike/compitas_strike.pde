@@ -1,9 +1,10 @@
 import ddf.minim.*;
-Minim menu;
+Minim menu,tox,parc,cov,bols,ey;
 AudioPlayer player1;
+AudioSample toxic,parci,covi,bolsa,eyc;
 
 
-PImage plaza,parcialito,fondomenu,libros,toxi,pegi,esrb;
+PImage plaza,parcialito,fondomenu,libros,toxi,pegi,esrb,titulo;
 
 boolean colision=false,covid=false,menu1=true,menu2=false,tutorial=false,creditos=false, juego=false,muertecov=false,muerteprom=false;
 float vida=1250;
@@ -12,12 +13,16 @@ Personajes profe;
 
 Tutorial pags;
 toxi toxicombo;
-int dif=2,r1=215,r2=215,r3=215,r4=215,g1=166,g2=166,g3=166,g4=166;
+int dif=2,r1=215,r2=215,r3=215,r4=215,g1=166,g2=166,g3=166,g4=166,tempo=0;
 void setup(){
   
   size(1280,720);
   menu= new Minim(this);
+  tox = new Minim (this);
+  ey= new Minim(this);   
   player1 = menu.loadFile("menu.wav",1024);
+  toxic = tox.loadSample("toxi.mp3",2000);
+  eyc = ey.loadSample("cuidadito.mp3",2000);
   principal= new Personajes (width/2,height/2,13,460,34,50);  
   profe= new Personajes(width,int(random(0,height)),1,259,29,42);
   pags= new Tutorial(0,1,false,false);
@@ -26,35 +31,40 @@ void setup(){
  
 }
 void draw(){
-
-   
+   tempo-=1/frameRate;
+   if(tempo==0){
+    player1.rewind();  
+    tempo=1000;}
+  println(tempo);
   if (menu1==true){
-    player1.loop();
- 
-  menu1();
   
-  
-  }
-  else if(menu2==true){
+  player1.play();
     
-  menu2();
+      menu1();
+    }
+  else if(menu2==true){ 
+  
+      
+   menu2();
   }
   else if (tutorial==true){
- pags.paginas();
+  player1.pause();
+ 
+  pags.paginas();
     
  }
-     
-    
-    
   
   else if(juego==true){
-  
+  player1.shiftGain(player1.getGain(),-10,1024);
+   
    parcialito= loadImage("parcial.png");
    plaza= loadImage("plazache.jpeg");
    image(plaza,0,0);
-   copy(parcialito,9,4,19,20,20,20,19,20);
+   fill(255);
+   rect(0,0,width,100);
+   copy(parcialito,9,4,19,20,width/2+70,20,30,30);
    timer();
-    promedio();
+   
     toxicombo.display();
     profe.moveProfes();
     profe.display();
@@ -63,19 +73,23 @@ void draw(){
     principal.colision();
     barraestudio();
     barras();
+     promedio();
    if(toxicombo.comer()==true){
     toxicombo = new toxi();
-    if(vida<=1230){
-    vida+=20;}
+    if(vida<=1210){
+    vida+=40;
+    toxic.trigger();}
     else{
-    vida+=1250-vida;}
+    vida+=1250-vida;
+  toxic.trigger();}
     }
   }
   else if(creditos==true){
+    player1.pause();
   creditos();
   }
  
-     
+    
   
 }
 void keyPressed(){
@@ -100,7 +114,9 @@ void barras(){
   rect(900,20,vida,60);
   textSize(15);
   text("SALUD",920,85);
-  if(covid==true && vida!=900){vida-=dif;}
+  if(covid==true && vida!=900){
+  vida-=dif;
+  }
   if(vida==900&&muerteprom==false)
   {
     principal.velocidadperso=0;
@@ -109,7 +125,11 @@ void barras(){
      background(0);
      fill(255,0,0);
      textSize(50);
+     time=10000;
      text("TIENES COVID",(width/2)-150,height/2);
+     text("Sobreviviste a:",(width/2-250),height/2+70);
+     text(parciales,width/2+100,height/2+70);
+     text("parciales", width/2+160,height/2+70);
      textSize(30);
      fill(0,0,255);
      text("presiona alguna letra para volver al menú",(width/2)-70,height-30);
@@ -119,7 +139,8 @@ void barras(){
     prom=5;
     nota=5;
     estudio=100;
-    time=round(random(700,800));
+    time=0;
+    
   principal.x=width/2;
   principal.y=height/2;
   profe.x=width;
@@ -129,6 +150,7 @@ void barras(){
   
 }
 void menu2(){
+  parciales=-1;
   principal.x=width/2;
   principal.y=height/2;
   profe.x=width;
@@ -178,7 +200,8 @@ void menu2(){
    
 }
 void menu1(){
-    background(195);
+  fondomenu=loadImage("fondo-menu.jpeg");
+  image(fondomenu,0,0);
   rectMode(CORNER);
   stroke(0);
   fill(r1,g1,0);
@@ -230,21 +253,21 @@ void menu1(){
     g4=166;
   }
   
+  titulo=loadImage("titulo2.png");
   
-  textSize(80);
-  fill(255);
-   text("Compitas Strike",width/2-300,150);
    textSize(30);
    fill(0);
    text("Nuevo Juego",width/2-100,335);
-   text("Historia y tutorial",width/2-150,405);
+   text("Historia y tutorial",width/2-130,405);
    text("Créditos",width/2-70,475);
    text("Salir",width/2-40,545);
    pegi = loadImage("7.png");
    copy(pegi,0,0,424,518,20,height-140,100,140);
    esrb = loadImage("índice.png");
    copy(esrb,3,4,176,267,140,height-140,100,140);
+   image(titulo,width/2-350,150);
    
    
    
 }
+  
