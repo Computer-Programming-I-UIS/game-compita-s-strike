@@ -11,8 +11,13 @@ Realizado por:
 
 En un momento utópico en el que es permitido asistir a la Universidad Industrial de Santander de forma presencial, nuestro personaje deberá enfrentarse a los peligros de contagiarse de Covid-19 y de quedar "en bolsa" por un bajo promedio.
 
+![./capturas/banner.jpeg](./capturas/banner.jpeg)
 ![./capturas/captura1.png](./capturas/captura1.png)
 ![./capturas/captura2.png](./capturas/captura2.png)
+![./capturas/captura3.png](./capturas/captura3.png)
+![./capturas/captura4.png](./capturas/captura4.png)
+![./capturas/mini_gameplay.gif](./capturas/mini_gameplay.gif)
+
 
 ### Características
 
@@ -30,8 +35,20 @@ En un momento utópico en el que es permitido asistir a la Universidad Industria
 
 - El videojuego está ambientado en las instalaciones de la Universidad Industrial de Santander.
 
+- El juego tiene la opción de escoger entre dos escenarios que simulan la "plazoleta che" y la "plazoleta Camilo Torres" de la UIS, ambos escenarios fueron diseñados por los desarrolladores.
+
+- Cuenta con los siguientes efectos de sonido: Campanitas de alerta en caso de que el profesor se acerce mucho, sonido de masticar cuando el personaje come un toxicombo, una voz que dice "parcial inminente" cuando falta poco para que "ataque" el parcial, una voz que dice "tienes covid" en caso de vaciar la barra de salud, una voz que dice "¡Ja! estás bolsa" en caso de que el promedio del personaje quede por debajo de 3.
+
+- La canción de fondo es "Adventure Meme" de Kevin MacLeod.
+
+- La imagen de fondo del menú principal fue tomada del server de "UISCRAFT" de Minecraft.
+
+- Los escenarios fueron realizados en inkscape.
+
+- Banner dibujado por el usuario AngotPhoenix, amigo de los desarrolladores.
+
 - Juego apto para personas mayores de 7 años ya que no presenta violencia, pero puede presentar situaciones o lenguaje dificiles de comprender.
 
-![./capturas/7.png](./capturas/7.png)
-![./capturas/esrb.png](./capturas/esrb.png)
+![./capturas/clasificacion.png](./capturas/clasificacion.png)
+
 
