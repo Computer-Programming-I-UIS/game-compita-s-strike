@@ -11,10 +11,11 @@ void creditos(){
   text("La imagen del menú principal fue tomada del server ''UISCRAFT'' de Minecraft",50,230);
   text("Las imágenes son utilizadas únicamente con fínes académicos, todos los derechos reservados a los respectivos autores",50,260);
   text("Banda sonora ''Adventure Meme'' compuesta por Kevin MacLeod, libre de copyright",50,290);
+  text("Los efectos de sonido fueron tomados del sitio público sonidosmp3gratis.com y realizados por los desarrolladores",50,320);
   textSize(30);
-  text("Agradecimientos especiales:",50,330);
+  text("Agradecimientos especiales:",50,360);
   textSize(20);
-  text("Profesor Camilo Eduardo Rojas Ortiz, Processing Foundation, Mojang Studios e Incompetech music",50,360);
+  text("Profesor Camilo Eduardo Rojas Ortiz, Processing Foundation, Mojang Studios, Incompetech music y sonidosmp3gratis.com",50,390);
   textSize(20);
   text("Presione s para volver al menu principal",width-410,height-50);
   if(keyPressed){

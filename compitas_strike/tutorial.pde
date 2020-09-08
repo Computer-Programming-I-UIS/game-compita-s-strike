@@ -12,8 +12,6 @@
  }
  void paginas(){
    principal.velocidadperso=10;
-   principal.wx=13;
-   principal.wy=459;
    profe.wy=259;
    profe.wx=1;
    
@@ -90,9 +88,10 @@
       text("Compa ¡recuerde que también tiene que estudiar!",width/2-400,70);
       text("Los líbros estarán disponibles en todo momento",width/2-400,115);
       text("estos le permitirán prepararse para el ataque silencioso y repentino de los parciales",width/2-600,160);
-      text("¡OJO! nadie sabe cuándo atacarán así que mantengase preparado",width/2-450,205);
-      text("si no se prepara su promedio bajará",width/2-250,250);
-      text("Si su promedio queda por debajo de 3 quedará en bolsa",width/2-360,295); 
+      text("¡OJO! solo sabrá que atacarán cuando oiga ''parcial inminente''" ,width/2-500,205);
+      text("así que ¡mantengase preparado!",width/2-200,250);
+      text("si no se prepara su promedio bajará",width/2-250,295);
+      text("Si su promedio queda por debajo de 3 QUEDARÁ EN BOLSA",width/2-360,340); 
        libros= loadImage("libros.png");
       copy(libros,2,28,436,394,width/2-75,360,150,150);
       textSize(20);

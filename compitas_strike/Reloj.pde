@@ -1,4 +1,4 @@
-int time,parciales=-1;
+int time=round(random(700,800)),parciales=0;
 float prom=5,estudio=100,nota=5; 
 
 
@@ -12,6 +12,8 @@ void timer(){
   estudio=100;
   parciales++;
   }
+  else if(time==80){
+  parci.trigger();}
 }
 void promedio(){
   
@@ -25,6 +27,9 @@ void promedio(){
   nota=map(estudio,100,450,0,5);
   if(prom<3&&muertecov==false){
     background(0);
+    bolsa.shiftGain(bolsa.getGain(),+20,1024);
+    player1.pause();
+    bolsa.play();
   principal.velocidadperso=0;
      profe.velocidadprof=0;
      muerteprom=true;
@@ -32,7 +37,10 @@ void promedio(){
      textSize(50);
      text("ESTÁS BOLSA",(width/2)-150,height/2);
      text("Sobreviviste a:",(width/2-250),height/2+70);
-     text(parciales-1,width/2+150,height/2+70);
+     text(parciales-1,width/2+100,height/2+70);
+     text("parciales", width/2+160,height/2+70);
+     bolsa.play();
+     eyc.stop();
      time=10000;
      textSize(30);
      fill(0,0,255);
@@ -40,7 +48,7 @@ void promedio(){
      if(keyPressed==true&&key!=CODED){
     menu2=true;
     juego=false;
-    time=0;
+    time=round(random(700,800));
     principal.x=width/2;
   principal.y=height/2;
   profe.x=width;
