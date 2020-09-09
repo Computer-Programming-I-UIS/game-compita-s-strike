@@ -21,6 +21,8 @@ En un momento utópico en el que es permitido asistir a la Universidad Industria
 
 ### Características
 
+- Se requiere la librería minim para los sonidos.
+
 - El personaje (Diseño propiedad de la franquicia Pokémon) aparece inicialmente inmovil en el centro de la pantalla y se desplaza con las flechas del teclado.
 
 - Deberá empezar a moverse para escapar de "el profesor" (Diseño propiedad de la franquicia Pokémon) que intentará acercarse irrespetando el distaciamiento social.
