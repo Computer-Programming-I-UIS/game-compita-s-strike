@@ -10,7 +10,6 @@ boolean colision=false,covid=false,menu1=true,menu2=false, menu3=false,tutorial=
 float vida=1250;
 Personajes principal;
 Personajes profe;
-
 Tutorial pags;
 toxi toxicombo;
 int dif=2,r1=215,r2=215,r3=215,r4=215,g1=166,g2=166,g3=166,g4=166,tempo=0;
@@ -42,7 +41,6 @@ void draw(){
    if(tempo==0){
     player1.rewind();  
     tempo=1000;}
-  println(tempo);
   if (menu1==true){
   
   player1.play();
@@ -151,10 +149,8 @@ void barras(){
       covi.shiftGain(covi.getGain(),+200,1024);
       player1.pause();
   
-
    covi.play();
-   
-     
+  
      text("TIENES COVID",(width/2)-150,height/2);
      text("Sobreviviste a:",(width/2-250),height/2+70);
      text(parciales,width/2+100,height/2+70);

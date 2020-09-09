@@ -16,6 +16,7 @@ void creditos(){
   text("Agradecimientos especiales:",50,360);
   textSize(20);
   text("Profesor Camilo Eduardo Rojas Ortiz, Processing Foundation, Mojang Studios, Incompetech music y sonidosmp3gratis.com",50,390);
+  text("Agradecemos también al usuario AngotPhoenix que nos apoyó durante la realización de este proyecto",50,420);
   textSize(20);
   text("Presione s para volver al menu principal",width-410,height-50);
   if(keyPressed){
